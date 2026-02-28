@@ -1,16 +1,16 @@
 # Node modules
-lpsfrontend/node_modules/
-lpsbackend/node_modules/
+frontend/node_modules/
+backend/node_modules/
 
 # Environment files
-lpsfrontend/.env
-lpsbackend/.env
+frontend/.env
+backend/.env
 
 # Logs (ignore all .log files)
 **/*.log
 **/logs/
-lpsfrontend/npm-debug.log*
-lpsbackend/npm-debug.log*
+frontend/npm-debug.log*
+backend/npm-debug.log*
 
 # OS generated files
 .DS_Store
