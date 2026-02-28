@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Sparkles } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import StudentPage from "./pages/StudentPage";
 import TeacherPage from "./pages/TeacherPage";
@@ -10,6 +11,7 @@ import LiveResults from "./components/LiveResults";
 const App = () => {
   return (
     <Router>
+      <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/student" element={<StudentPage />} />
@@ -24,7 +26,7 @@ const App = () => {
 
 export default App;
 
-// 👇 Redesigned Home Component (Figma Style)
+//Redesigned Home Component (Figma Style)
 const Home = () => {
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState("");

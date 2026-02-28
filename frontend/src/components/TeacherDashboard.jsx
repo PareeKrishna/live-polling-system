@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import socket from "../socket";
 import PollHistory from "./PollHistory";
 import ChatSidebar from "./ChatSidebar";
+import toast from "react-hot-toast";
 
 const TeacherDashboard = () => {
     const navigate = useNavigate();
@@ -38,7 +39,21 @@ const TeacherDashboard = () => {
 
     const createPoll = () => {
         const cleanOptions = options.filter((opt) => opt.text.trim() !== "");
-        if (!questionText || cleanOptions.length < 2 || pollTime <= 0) return;
+
+        if (!questionText.trim()) {
+            toast.error("Please enter a question!");
+            return;
+        }
+
+        if (cleanOptions.length < 2) {
+            toast.error("Please provide at least 2 options!");
+            return;
+        }
+
+        if (pollTime <= 0) {
+            toast.error("Please set a valid poll time!");
+            return;
+        }
 
         const sessionId = localStorage.getItem('sessionId') || "default-session";
         socket.emit("create-poll", {
@@ -47,6 +62,8 @@ const TeacherDashboard = () => {
             timeLimit: pollTime,
             sessionId,
         });
+
+        toast.success("Poll created successfully!");
 
         setQuestionText("");
         setOptions([
@@ -86,7 +103,7 @@ const TeacherDashboard = () => {
             <ChatSidebar />
             <div className="min-h-screen bg-white p-6 text-dark">
 
-                <div className="max-w-6xl mx-auto p-8 bg-white rounded-xl shadow border border-gray-200">
+                <div className="max-w-6xl mx-auto mt-10 p-8 pt-12 bg-white rounded-xl shadow border border-gray-200">
                     <div className="mb-6">
                         <span className="text-sm font-semibold px-6 py-3 rounded-full bg-primary text-white mb-4 inline-flex items-center gap-2">
                             <Sparkles size={18} />
