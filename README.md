@@ -2,10 +2,6 @@
 
 A live interactive polling system for the classroom, where teachers can create polls in real-time and students can answer live. Constructed using React 19, Node.js, and Socket.IO, it supports live results, live chat, student management, and poll history—perfect for increasing participation in online and hybrid learning environments.
 
-## 🚀 Recent Updates
-- **Enhanced UI**: Added a sleek "Intervue Poll" badge with `lucide-react` Sparkles icon across the home page and teacher dashboard.
-- **Improved Styling**: Increased badge size and padding for a more premium, modern look.
-
 ## ✨ Features
 
 ### For Teachers
