@@ -14,7 +14,9 @@ const app = express();
 const server = http.createServer(app);
 
 // Enable CORS for frontend access
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 // Create the Socket.IO server
